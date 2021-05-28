@@ -4,18 +4,145 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CGPA Calculate</title>
-    <link rel="stylesheet"type="text/css" href="style.css">
-    <script type="text/javascript" src="calculate.js"></script>
+    <title>CGPA Calculator</title>
 </head>
-<body>
-    <div class="bgimage"></div>
+<style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    
+    
+    .bg-image {
+      /* The image used */
+      background-image: url("iubat.jpg");
+      
+      /* Add the blur effect */
+      filter: blur(8px);
+      -webkit-filter: blur(5px);
+      
+      /* Full height */
+      height: 160%; 
+      
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: repeat;
+      
+    }
+    
+    /* Position text in the middle of the page/image */
+    .bg-text {
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+      color: white;
+      font-weight: bold;
+      border: 3px solid #f1f1f1;
+      position: absolute;
+      top: 90%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      width: 80%;
+      padding: 20px;
+      text-align: center;
+    }
+    </style>
+    </head>
+    <body>
+        <div class="rb">
+            
+        </div>
+    
+    <div class="bg-image"></div>
+    
+    
     <div class="bg-text">
-        <input type="text" id="num1" placeholder="0">
-        <input type="text" id="num2" placeholder="0">
-        <button type="button" onclick="myfun()" value="calculate">Calculate</button>
-        
-        <p id="demo">Result will show here</p>
+       
+        <br><br>
+        <h2>Calculate you CGPA..</h2>
+        <hr>
+    <h4>How many semester you've done? - </h4> <input type="text" id="totalseme" placeholder="12"style="padding: 10px;width: 16%;">
+        <hr>
+        First Semester SGPA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =&nbsp;<input type="text" id="first" placeholder="0" style="padding: 5px;width: 16%;"><br>
+       <br>
+        Second Semester SGPA =&nbsp;<input type="text" id="second" placeholder="0" style="padding: 5px;width: 16%;"><br>
+       <br>
+        Third Semester SGPA&nbsp;&nbsp;&nbsp;&nbsp; = <input type="text" id="third" placeholder="0" style="padding: 5px;width: 16%;"><br>
+       <br>
+        Fourth Semester SGPA&nbsp; = <input type="text" id="four" placeholder="0" style="padding: 5px;width: 16%;"><br>
+       <br>
+        Fifth Semester SGPA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = <input type="text" id="five" placeholder="0" style="padding: 5px;width: 16%;"><br>
+<br>
+        Sixth Semester SGPA &nbsp;&nbsp;&nbsp;&nbsp;= <input type="text" id="six" placeholder="0" style="padding: 5px;width: 16%;"><br>
+       <br>
+        Seventh Semester SGPA&nbsp;&nbsp;&nbsp; = <input type="text" id="seven" placeholder="0" style="padding: 5px;width: 16%;">&nbsp;&nbsp;&nbsp;&nbsp;<br>
+       <br>
+        Eighth Semester SGPA&nbsp;&nbsp; = <input type="text" id="eight" placeholder="0" style="padding: 5px;width: 16%;"><br>
+      <br>
+        Nineth Semester SGPA &nbsp;&nbsp;= <input type="text" id="nine" placeholder="0" style="padding: 5px;width: 16%;"><br>
+       <br>
+        Tenth Semester SGPA &nbsp;&nbsp;&nbsp;&nbsp;= <input type="text" id="ten" placeholder="0" style="padding: 5px;width: 16%;"><br>
+        <br>
+        Evleven Semester SGPA = <input type="text" id="eleven" placeholder="0" style="padding: 5px;width: 16%;"><br>
+        <br>
+        Twelve Semester SGPA&nbsp; = <input type="text" id="twelve" placeholder="0" style="padding: 5px;width: 16%;"><br>
+     <hr>
+     <button type="button" onclick="myFun()" value="Calculate" style="padding: 15px;width: 40%;"><b>Calculate</b></button><br>
+     <h4> CGPA = <p id="demo"></p></h4>
+     <p id="dem1" style="color: greenyellow;"></p>
+
+
     </div>
-</body>
-</html>
+    
+    </body>
+
+    <script>
+
+function myFun(){
+        var a,b,c,d,e,f,g,h,i,j,k,l,x,y,z, total_seme;
+        a = Number(document.getElementById("first").value);
+        b = Number(document.getElementById("second").value);
+        c = Number(document.getElementById("third").value);
+
+        d = Number(document.getElementById("four").value);
+        e = Number(document.getElementById("five").value);
+        f = Number(document.getElementById("six").value);
+
+        g = Number(document.getElementById("seven").value);
+        h = Number(document.getElementById("eight").value);
+        i = Number(document.getElementById("nine").value);
+
+        j = Number(document.getElementById("ten").value);
+        k = Number(document.getElementById("eleven").value);
+        l = Number(document.getElementById("twelve").value);
+        total_seme = Number(document.getElementById("totalseme").value);
+        x= (a+b+c+d+e+f+g+h+i+j+k+l)/total_seme;
+        document.getElementById("demo").innerHTML=x.toFixed(2);
+
+        if(x>3.80)
+        {
+            document.getElementById("dem1").innerHTML = "Excellent";
+        }
+        if(x<3.80 && x>3.50)
+        {
+            document.getElementById("dem1").innerHTML = "Well done";
+        }
+        if(x<3.50 && x>3.00)
+        {
+            document.getElementById("dem1").innerHTML = "Try Hard";
+        }
+        if(x<3.00 && x>2.80)
+        {
+            document.getElementById("dem1").innerHTML = "Passing Grade";
+        }
+        if(x<2.50)
+        {
+            document.getElementById("dem1").innerHTML = "Fail..!";
+        }
+
+}
+
+    </script>
+    </html>
